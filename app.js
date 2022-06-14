@@ -2,6 +2,7 @@
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 let Seattle = {
+    name:'Seattle',
     minCustomers: 23,
     maxCustomers: 65,
     avgCookie: 6.3,
@@ -15,23 +16,24 @@ let Seattle = {
             let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
             this.customersPerHour.push(cust);
         }
-        //this isn't working, it isn't pushing numbers into the array
-        //it won't even console.log 'hey'
     },
-
+        //calculate cookies sold per hour
     simCalculateCookiesPerHour: function(){
         for(let i=0; i < hours.length; i++){
             let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
+            //push new cookie calculation to each hour in hours array
             this.cookiesPerHour.push(cook);
+            //tally up all cookies sales for the day
+            this.totalDailyCookies += cook;
         }
-    },
-
-
+    }
 };
+//call object methods
 Seattle.randomCustPerHour();
 Seattle.simCalculateCookiesPerHour();
 
 let Tokyo = {
+    name:'Tokyo',
     minCustomers: 3,
     maxCustomers: 24,
     avgCookie: 1.2,
@@ -45,14 +47,13 @@ let Tokyo = {
             let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
             this.customersPerHour.push(cust);
         }
-        //this isn't working, it isn't pushing numbers into the array
-        //it won't even console.log 'hey'
     },
 
     simCalculateCookiesPerHour: function(){
         for(let i=0; i < hours.length; i++){
             let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
             this.cookiesPerHour.push(cook);
+            this.totalDailyCookies += cook;
         }
     },
 
@@ -62,6 +63,7 @@ Tokyo.randomCustPerHour();
 Tokyo.simCalculateCookiesPerHour();
 
 let Dubai = {
+    name:'Dubai',
     minCustomers: 11,
     maxCustomers: 38,
     avgCookie: 3.7,
@@ -75,14 +77,13 @@ let Dubai = {
             let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
             this.customersPerHour.push(cust);
         }
-        //this isn't working, it isn't pushing numbers into the array
-        //it won't even console.log 'hey'
     },
 
     simCalculateCookiesPerHour: function(){
         for(let i=0; i < hours.length; i++){
             let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
             this.cookiesPerHour.push(cook);
+            this.totalDailyCookies += cook;
         }
     },
 
@@ -92,6 +93,7 @@ Dubai.randomCustPerHour();
 Dubai.simCalculateCookiesPerHour();
 
 let Paris = {
+    name:'Paris',
     minCustomers: 20,
     maxCustomers: 38,
     avgCookie: 62.3,
@@ -105,14 +107,13 @@ let Paris = {
             let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
             this.customersPerHour.push(cust);
         }
-        //this isn't working, it isn't pushing numbers into the array
-        //it won't even console.log 'hey'
     },
 
     simCalculateCookiesPerHour: function(){
         for(let i=0; i < hours.length; i++){
             let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
             this.cookiesPerHour.push(cook);
+            this.totalDailyCookies += cook;
         }
     },
 
@@ -122,6 +123,7 @@ Paris.randomCustPerHour();
 Paris.simCalculateCookiesPerHour();
 
 let Lima = {
+    name:'Lima',
     minCustomers: 2,
     maxCustomers: 16,
     avgCookie: 4.6,
@@ -135,18 +137,15 @@ let Lima = {
             let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
             this.customersPerHour.push(cust);
         }
-        //this isn't working, it isn't pushing numbers into the array
-        //it won't even console.log 'hey'
     },
 
     simCalculateCookiesPerHour: function(){
         for(let i=0; i < hours.length; i++){
             let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
             this.cookiesPerHour.push(cook);
+            this.totalDailyCookies += cook;
         }
     },
-
-
 };
 Lima.randomCustPerHour();
 Lima.simCalculateCookiesPerHour();
@@ -172,7 +171,11 @@ function render(hours, city){
     //add h2 to div container
     cookieDiv.append(putCityHere);
 
-    putCityHere.textContent = `enter city name here`;
+    //let h2 print out each city's name before hours and cookie total
+    putCityHere.textContent = `${city.name}`;
+
+    //create new list element for daily cookie total
+    let totalLi = document.createElement('li');
 
     for(let i = 0; i < hours.length; i++){
         //create a list element
@@ -184,6 +187,10 @@ function render(hours, city){
         //append list to unordered list
         ul.append(li);
     }
+    //add cookie total list element to end of hours list
+    totalLi.textContent = `Total: ${city.totalDailyCookies}`;
+    //add cookie total list element to unordered list element
+    ul.append(totalLi);
     cookieDiv.append(ul); //adding ul to our div
 }
 render(hours, Seattle);
