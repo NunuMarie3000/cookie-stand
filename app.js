@@ -1,200 +1,135 @@
 'use strict()';
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-let Seattle = {
-    name:'Seattle',
-    minCustomers: 23,
-    maxCustomers: 65,
-    avgCookie: 6.3,
-    cookiesPerHour: [],
-    customersPerHour: [],
-    totalDailyCookies: 0,
+//create table container <table></table>
+let cookieTable = document.createElement('table');
 
-    randomCustPerHour: function(){
-        //calculate random amount of customers per hour
-        for(let i=0; i < hours.length; i++){
-            let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
-            this.customersPerHour.push(cust);
-        }
-    },
-        //calculate cookies sold per hour
-    simCalculateCookiesPerHour: function(){
+//add table to body of html doc
+document.body.append(cookieTable);
+
+//create thead for hours
+//create thead element
+function renderHours(hours, city){
+    let tableHeaderContainer = document.createElement('thead');
+    //create th element
+    let tableHeaderEl = document.createElement('th');
+    //add empty spot before 6am
+    tableHeaderEl.textContent = "     ";
+    tableHeaderContainer.append(tableHeaderEl);
+    //print out each hour
+    for(let i=0; i<hours.length; i++){
+        //create th element
+        let tableHeaderEl = document.createElement('th');
+        tableHeaderEl.textContent = `${hours[i]}`;
+        tableHeaderContainer.append(tableHeaderEl);
+        cookieTable.append(tableHeaderContainer);
+    }
+    //print 'daily location total' string
+    //create new theader
+    let tableHeaderElDaily = document.createElement('th');
+    tableHeaderElDaily.textContent = `Daily Location Total`;
+    tableHeaderContainer.append(tableHeaderElDaily);
+    cookieTable.append(tableHeaderContainer);
+};
+renderHours(hours);
+
+function GenerateCity(name, minCustomers, maxCustomers, avgCookie, cookiesPerHour, customersPerHour){
+    this.name = name;
+    this.minCustomers = minCustomers;
+    this.maxCustomers = maxCustomers;
+    this.avgCookie = avgCookie;
+    this.cookiesPerHour = cookiesPerHour;
+    this.customersPerHour = customersPerHour;
+    this.totalDailyCookie = 0;
+
+    this.randomCustPerHour = function(){
+            //calculate random amount of customers per hour
+            for(let i=0; i < hours.length; i++){
+                let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
+                this.customersPerHour.push(cust);
+            }
+        };
+    
+    this.simCalculateCookiesPerHour = function(){
         for(let i=0; i < hours.length; i++){
             let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
+            //tally up all cookies sales for the day
+            this.totalDailyCookie += cook;
             //push new cookie calculation to each hour in hours array
             this.cookiesPerHour.push(cook);
-            //tally up all cookies sales for the day
-            this.totalDailyCookies += cook;
         }
-    }
+    };
+    this.renderHourly = function(){
+        //create tbody
+        let tableBodyContainer = document.createElement('tbody');
+        //create table row
+        let tableRow = document.createElement('tr');
+        //create td
+        let tableD = document.createElement('td');
+        //print the city's name as the first td value
+        tableD.textContent = `${this.name}`;
+        //add td to tr
+        tableRow.append(tableD);
+        //for length of hours array, print cookies per hour in each spot
+        for(let i=0; i<hours.length; i++){
+            //create new td different than td with names in it
+            tableDWithNumbers = document.createElement('td');
+            tableDWithNumbers.textContent = `${this.cookiesPerHour[i]}`;
+            //add tds to tr
+            tableRow.append(tableDWithNumbers);
+            //add tr to tbody
+            tableBodyContainer.append(tableRow);
+        }
+        //add tbody to table
+        cookieTable.append(tableBodyContainer);
+        //create Daily Location Total, new td
+        let dailyLocationTd = document.createElement('td');
+        dailyLocationTd.textContent = `${this.totalDailyCookie}`;
+        //add td to existing tr
+        tableRow.append(dailyLocationTd);
+        //add thead to table
+        cookieTable.append(tableRow);
+    };
+    // this.renderFooter = function(){
+    // //create new th
+    // let totaledUp = document.createElement('th');
+    // //create new thead
+    // let totalsContainer = document.createElement('thead');
+    // totaledUp.textContent = `Totals`;
+    // totalsContainer.append(totaledUp);
+    // for(let i=0; i<hours.length; i++){
+    //     //create new th
+    //     totaledUp.textContent = `${this.totalDailyCookie}`;
+    //     totalsContainer.append(totaledUp);
+    //     cookieTable.append(totalsContainer);
+    // }
+    // cookieTable.append(totalsContainer);
+    // //add th to thead
+    // //add thead to previously created table
+    // };
 };
-//call object methods
+
+let Seattle = new GenerateCity('Seattle', 23, 65, 6.3, [], []);
 Seattle.randomCustPerHour();
 Seattle.simCalculateCookiesPerHour();
+Seattle.renderHourly();
 
-let Tokyo = {
-    name:'Tokyo',
-    minCustomers: 3,
-    maxCustomers: 24,
-    avgCookie: 1.2,
-    cookiesPerHour: [],
-    customersPerHour: [],
-    totalDailyCookies: 0,
-
-    randomCustPerHour: function(){
-        //calculate random amount of customers per hour
-        for(let i=0; i < hours.length; i++){
-            let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
-            this.customersPerHour.push(cust);
-        }
-    },
-
-    simCalculateCookiesPerHour: function(){
-        for(let i=0; i < hours.length; i++){
-            let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
-            this.cookiesPerHour.push(cook);
-            this.totalDailyCookies += cook;
-        }
-    },
-
-
-};
+let Tokyo = new GenerateCity('Tokyo', 3, 24, 1.2, [], []);
 Tokyo.randomCustPerHour();
 Tokyo.simCalculateCookiesPerHour();
+Tokyo.renderHourly();
 
-let Dubai = {
-    name:'Dubai',
-    minCustomers: 11,
-    maxCustomers: 38,
-    avgCookie: 3.7,
-    cookiesPerHour: [],
-    customersPerHour: [],
-    totalDailyCookies: 0,
-
-    randomCustPerHour: function(){
-        //calculate random amount of customers per hour
-        for(let i=0; i < hours.length; i++){
-            let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
-            this.customersPerHour.push(cust);
-        }
-    },
-
-    simCalculateCookiesPerHour: function(){
-        for(let i=0; i < hours.length; i++){
-            let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
-            this.cookiesPerHour.push(cook);
-            this.totalDailyCookies += cook;
-        }
-    },
-
-
-};
+let Dubai = new GenerateCity('Dubai', 11, 38, 3.7, [], []);
 Dubai.randomCustPerHour();
 Dubai.simCalculateCookiesPerHour();
+Dubai.renderHourly();
 
-let Paris = {
-    name:'Paris',
-    minCustomers: 20,
-    maxCustomers: 38,
-    avgCookie: 62.3,
-    cookiesPerHour: [],
-    customersPerHour: [],
-    totalDailyCookies: 0,
-
-    randomCustPerHour: function(){
-        //calculate random amount of customers per hour
-        for(let i=0; i < hours.length; i++){
-            let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
-            this.customersPerHour.push(cust);
-        }
-    },
-
-    simCalculateCookiesPerHour: function(){
-        for(let i=0; i < hours.length; i++){
-            let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
-            this.cookiesPerHour.push(cook);
-            this.totalDailyCookies += cook;
-        }
-    },
-
-
-};
+let Paris = new GenerateCity('Paris', 20, 38, 2.3, [], []);
 Paris.randomCustPerHour();
 Paris.simCalculateCookiesPerHour();
+Paris.renderHourly();
 
-let Lima = {
-    name:'Lima',
-    minCustomers: 2,
-    maxCustomers: 16,
-    avgCookie: 4.6,
-    cookiesPerHour: [],
-    customersPerHour: [],
-    totalDailyCookies: 0,
-
-    randomCustPerHour: function(){
-        //calculate random amount of customers per hour
-        for(let i=0; i < hours.length; i++){
-            let cust = Math.floor(Math.random(this.minCustomers - this.maxCustomers + 1) * this.minCustomers);
-            this.customersPerHour.push(cust);
-        }
-    },
-
-    simCalculateCookiesPerHour: function(){
-        for(let i=0; i < hours.length; i++){
-            let cook = Math.ceil(this.avgCookie * this.customersPerHour[i]);
-            this.cookiesPerHour.push(cook);
-            this.totalDailyCookies += cook;
-        }
-    },
-};
+let Lima = new GenerateCity('Lima', 2, 16, 4.6, [], []);
 Lima.randomCustPerHour();
 Lima.simCalculateCookiesPerHour();
-
-// rendering the hours ...it also creates div/lists at the same timei could also make a function that renders hours and cookies together, with the parameters being both hours and cookies
-function render(hours, city){
-    //i created a div container called cookieDiv
-    let cookieDiv = document.createElement('div');
-    //<div id="cookies-sold"></div>
-    cookieDiv.setAttribute('id', 'cookies-sold');
-    //add the div to the body of my html document
-    document.body.append(cookieDiv);
-
-    //unordered list
-    let ul = document.createElement('ul'); 
-    
-    //so we can put individual city names before hours/cookie info
-    // this.city = city;
-
-    //make h2 element to add city name to
-    let putCityHere = document.createElement('h3');
-
-    //add h2 to div container
-    cookieDiv.append(putCityHere);
-
-    //let h2 print out each city's name before hours and cookie total
-    putCityHere.textContent = `${city.name}`;
-
-    //create new list element for daily cookie total
-    let totalLi = document.createElement('li');
-
-    for(let i = 0; i < hours.length; i++){
-        //create a list element
-        let li = document.createElement('li');
-
-        //add text
-        li.textContent = `${hours[i]}: ${city.cookiesPerHour[i]}`;
-
-        //append list to unordered list
-        ul.append(li);
-    }
-    //add cookie total list element to end of hours list
-    totalLi.textContent = `Total: ${city.totalDailyCookies}`;
-    //add cookie total list element to unordered list element
-    ul.append(totalLi);
-    cookieDiv.append(ul); //adding ul to our div
-}
-render(hours, Seattle);
-render(hours, Tokyo);
-render(hours, Dubai);
-render(hours, Paris);
-render(hours, Lima);
+Lima.renderHourly();
