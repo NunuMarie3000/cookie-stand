@@ -1,5 +1,5 @@
 'use strict()';
-const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+const hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
 //create table container <table></table>
 let cookieTable = document.createElement('table');
@@ -7,9 +7,15 @@ let cookieTable = document.createElement('table');
 //add table to body of html doc
 document.body.append(cookieTable);
 
+//create tbody
+let tableBodyContainer = document.createElement('tbody');
+
+//add tbody to table
+cookieTable.append(tableBodyContainer);
+
 //create thead for hours
 //create thead element
-function renderHours(hours, city){
+function renderHours(hours){
     let tableHeaderContainer = document.createElement('thead');
     //create th element
     let tableHeaderEl = document.createElement('th');
@@ -60,8 +66,6 @@ function GenerateCity(name, minCustomers, maxCustomers, avgCookie, cookiesPerHou
         }
     };
     this.renderHourly = function(){
-        //create tbody
-        let tableBodyContainer = document.createElement('tbody');
         //create table row
         let tableRow = document.createElement('tr');
         //create td
@@ -80,6 +84,8 @@ function GenerateCity(name, minCustomers, maxCustomers, avgCookie, cookiesPerHou
             //add tr to tbody
             tableBodyContainer.append(tableRow);
         }
+        //add thead to table
+        cookieTable.append(tableRow);
         //add tbody to table
         cookieTable.append(tableBodyContainer);
         //create Daily Location Total, new td
@@ -87,26 +93,7 @@ function GenerateCity(name, minCustomers, maxCustomers, avgCookie, cookiesPerHou
         dailyLocationTd.textContent = `${this.totalDailyCookie}`;
         //add td to existing tr
         tableRow.append(dailyLocationTd);
-        //add thead to table
-        cookieTable.append(tableRow);
     };
-    // this.renderFooter = function(){
-    // //create new th
-    // let totaledUp = document.createElement('th');
-    // //create new thead
-    // let totalsContainer = document.createElement('thead');
-    // totaledUp.textContent = `Totals`;
-    // totalsContainer.append(totaledUp);
-    // for(let i=0; i<hours.length; i++){
-    //     //create new th
-    //     totaledUp.textContent = `${this.totalDailyCookie}`;
-    //     totalsContainer.append(totaledUp);
-    //     cookieTable.append(totalsContainer);
-    // }
-    // cookieTable.append(totalsContainer);
-    // //add th to thead
-    // //add thead to previously created table
-    // };
 };
 
 let Seattle = new GenerateCity('Seattle', 23, 65, 6.3, [], []);
@@ -133,3 +120,29 @@ let Lima = new GenerateCity('Lima', 2, 16, 4.6, [], []);
 Lima.randomCustPerHour();
 Lima.simCalculateCookiesPerHour();
 Lima.renderHourly();
+
+function renderFooter(a, b, c, d, e){
+    //create td for "Total"
+    let totalWord = document.createElement('td');
+    //add the word 'total' to td
+    totalWord.textContent = `Total`;
+    //create tr for all td in this function to go in
+    let totalRow = document.createElement('tr');
+    //add td to tr
+    totalRow.append(totalWord);
+    //ad tr to previously created tableBodyContainer
+    tableBodyContainer.append(totalRow);
+    //we have total cookies per hour in an array for each
+    for (let i=0; i<hours.length; i++){
+        let sumTotal = a.cookiesPerHour[i] + b.cookiesPerHour[i] + c.cookiesPerHour[i] + d.cookiesPerHour[i] + e.cookiesPerHour[i];
+        //print out sumTotal into it's own td
+        //create td
+        let sumTotalTD = document.createElement('td');
+        sumTotalTD.textContent = `${sumTotal}`;
+        //add td to tr
+        totalRow.append(sumTotalTD);
+    }
+    //add tr to tbody
+    tableBodyContainer.append(totalRow);
+};
+renderFooter(Seattle, Tokyo, Dubai, Paris, Lima);
