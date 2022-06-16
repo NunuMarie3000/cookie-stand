@@ -39,13 +39,13 @@ function renderHours(hours){
 };
 renderHours(hours);
 
-function GenerateCity(name, minCustomers, maxCustomers, avgCookie, cookiesPerHour, customersPerHour){
+function GenerateCity(name, minCustomers, maxCustomers, avgCookie){
     this.name = name;
     this.minCustomers = minCustomers;
     this.maxCustomers = maxCustomers;
     this.avgCookie = avgCookie;
-    this.cookiesPerHour = cookiesPerHour;
-    this.customersPerHour = customersPerHour;
+    this.cookiesPerHour = [];
+    this.customersPerHour = [];
     this.totalDailyCookie = 0;
 
     this.randomCustPerHour = function(){
@@ -96,27 +96,27 @@ function GenerateCity(name, minCustomers, maxCustomers, avgCookie, cookiesPerHou
     };
 };
 
-let Seattle = new GenerateCity('Seattle', 23, 65, 6.3, [], []);
+let Seattle = new GenerateCity('Seattle', 23, 65, 6.3);
 Seattle.randomCustPerHour();
 Seattle.simCalculateCookiesPerHour();
 Seattle.renderHourly();
 
-let Tokyo = new GenerateCity('Tokyo', 3, 24, 1.2, [], []);
+let Tokyo = new GenerateCity('Tokyo', 3, 24, 1.2);
 Tokyo.randomCustPerHour();
 Tokyo.simCalculateCookiesPerHour();
 Tokyo.renderHourly();
 
-let Dubai = new GenerateCity('Dubai', 11, 38, 3.7, [], []);
+let Dubai = new GenerateCity('Dubai', 11, 38, 3.7);
 Dubai.randomCustPerHour();
 Dubai.simCalculateCookiesPerHour();
 Dubai.renderHourly();
 
-let Paris = new GenerateCity('Paris', 20, 38, 2.3, [], []);
+let Paris = new GenerateCity('Paris', 20, 38, 2.3);
 Paris.randomCustPerHour();
 Paris.simCalculateCookiesPerHour();
 Paris.renderHourly();
 
-let Lima = new GenerateCity('Lima', 2, 16, 4.6, [], []);
+let Lima = new GenerateCity('Lima', 2, 16, 4.6);
 Lima.randomCustPerHour();
 Lima.simCalculateCookiesPerHour();
 Lima.renderHourly();
