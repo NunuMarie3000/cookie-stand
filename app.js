@@ -20,7 +20,7 @@ function renderHours(hours){
     //create th element
     let tableHeaderEl = document.createElement('th');
     //add empty spot before 6am
-    tableHeaderEl.textContent = "     ";
+    tableHeaderEl.textContent = "City";
     tableHeaderContainer.append(tableHeaderEl);
     //print out each hour
     for(let i=0; i<hours.length; i++){
