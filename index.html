@@ -4,10 +4,172 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Patty's Salmon Cookies</title>
 </head>
 <body>
+      <header>
+        <img id="header-logo" src="./images/salmonpicweek2.png" alt="Patty's Salmon Cookies Logo, A Large pink salmon">
 
+        <h1 class="business-name">Patty's Salmon Cookies</h1>
+
+        <div class="menu">
+            <a href="#menu-text" id="menu-button" class="nav-button">Menu</a>
+        </div>
+
+        <div class="merch">
+            <a href="#merch-text" id="merch-button" class="nav-button">Merch</a>
+        </div>
+
+        <div>
+            <button id="shopping-button" class="nav-button">Cart</button>
+        </div>
+    </header>
+
+    <div class="content-container">
+
+        <div id="welcome-container">
+            <h2 class="welcome">Welcome to Patty's</h2>
+                <div>
+                    <h3>Where the 'L' is Silent and the Flavor is Violent</h3>
+                </div>
+                <div>
+                    <img src="./images/chinook.jpeg" alt="">
+                </div>
+        </div>
+<!-- 
+        <div id="myModal" class="modal">
+            <div id="location-modal-content">
+                <h1>Locations</h1>
+                <h3>Seattle, WA</h3>
+                    <p>2169 Sam Pat Blvd Seattle, WA 98119</p>
+                    <p>253-242-0384</p>
+                <h3>Tokyo, Japan</h3>
+                    <p>247-1037 8-43-2 Nishiogu, Arakawa, Tokyo</p>
+                <h3>Dubai, UAE</h3>
+                    <P>Bin Rashed Boulevard Downtown Dubai, Dubai, UAE</P>
+                <h3>Paris, France</h3>
+                    <p> 172 boulevard Saint Germain, 75006 Paris, France (6th Arr. - Luxembourg)</p>
+                <h3>Lima, Peru</h3>
+                    <p>Av. Angamos Oeste 1003, Miraflores 15074, Peru</p>
+                <span class="close">x</span>
+            </div>
+        </div> -->
+
+        <h2 id="menu-text">Menu</h2>
+        <div id="menu-container">
+
+            <div class="cookie-info-container">
+                <div>
+                    <img class="menu-image" src="./images/poorly-frosted-cookie.jpeg" alt="">
+                </div>
+                <div id='poorly-frosted-info'class="cookie-info">
+                    <h4>Nutrition Information</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                </div>
+            </div>
+
+            <div class="cookie-info-container">
+                <div>
+                    <img class="menu-image" src="./images/PhotoByKellyViselOnUnsplash.jpg" alt="">
+                </div>
+                <div id="kelly-info" class="cookie-info">
+                    <h4>Nutrition Information</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                </div>
+            </div>
+
+            <div class="cookie-info-container">
+                <div>
+                    <img class="menu-image" src="./images/fish.jpeg" alt="">
+                </div>
+                <div id="fish-info" class="cookie-info">
+                    <h4>Nutrition Information</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="menuTwo-container">
+            <div class="cookie-info-container">
+                <div>
+                    <img class="menu-image" src="./images/download.jpeg" alt="">
+                </div>
+                <div class="cookie-info">
+                    <h4>Nutrition Information</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                </div>
+            </div>
+
+            <div class="cookie-info-container">
+                <div>
+                    <img class="menu-image" src="./images/Dog-Treats.png" alt="">
+                </div>
+                <div class="cookie-info">
+                    <h4>Nutrition Information</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                </div>
+            </div>
+        </div>
+
+            <h2 id="merch-text">Merch</h2>
+            <div id="merch-container">
+                <div class="cookie-info-container">
+                    <div>
+                        <img class="menu-image" src="./images/fish-cookie-cutter.jpeg" alt="">
+                    </div>
+                    <div class="cookie-info">
+                        <h4>Salmon Shaped Cookie Cutter</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                    </div>
+                </div>
+
+                <div class="cookie-info-container">
+                    <div>
+                        <img class="menu-image" src="./images/shirt.jpeg" alt="">
+                    </div>
+                    <div class="cookie-info">
+                        <h4>Double Salmon T-shirt</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                    </div>
+                </div>
+            </div>
+
+        <div id="about-us-container">
+            <h2>About Us</h2>
+            <img id="happy-family" src="./images/african-american-family-with-their-little-daughter-with-curly-fluffy-hair-having-fun-cooking-pastries-kitchen-dad-mom-daughter-cooking-together-cutt.jpg" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa expedita delectus ea odit. Sed tenetur aliquid fugiat consectetur hic, quis amet ex exercitationem quos et, tempore quas, autem libero voluptas! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed quis ullam, ipsum et eius natus totam officiis suscipit ex voluptate illo animi pariatur expedita ut optio sint eum consectetur quod! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nam quas ab quia praesentium, a facere quis soluta, error iure rerum voluptate magnam incidunt odit velit. Dignissimos eos saepe dolor.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <div id="copyright-container">
+            <img id='footer-logo' src="./images/salmonpicweek2.png" alt="">
+            <p>	&copy; StormyWeatherCreations 2022</p>
+        </div>
+
+        <div id="company-container">
+            <h3>Company</h3>
+                <div>
+                    <a href="#about-us-container">About Us</a>
+                </div>
+                <div>
+                    <a href="./sales.html">Employee Portal</a>
+                </div>
+        </div>
+
+        <div id="locations-container">
+           <button class="footer-button">Locations</button>
+        </div>
+
+        <div id="contact-us-container">
+            <button id="contact-us" class="footer-button">Contact Us</button>
+        </div>
+    </footer>
 </body>
 </html>
