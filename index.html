@@ -16,34 +16,22 @@
 
         <h1 class="business-name">Patty's Salmon Cookies</h1>
 
-        <div class="menu">
-            <a href="#menu-text" id="menu-button" class="nav-button">Menu</a>
-        </div>
-
-        <div class="merch">
-            <a href="#merch-text" id="merch-button" class="nav-button">Merch</a>
+        <div>
+            <a href="#menu-text" id="menu-button" class="footer-button">Menu</a>
         </div>
 
         <div>
-            <button id="shopping-button" class="nav-button">Cart</button>
+            <a href="#merch-text" id="merch-button" class="footer-button">Merch</a>
+        </div>
+
+        <div>
+            <a href="./cart.html" id="shopping-button" class="footer-button">Cart</a>
         </div>
     </header>
 
-    <div class="content-container">
-
-        <div id="welcome-container">
-            <h2 class="welcome">Welcome to Patty's</h2>
-                <div>
-                    <h3>Where the 'L' is Silent and the Flavor is Violent</h3>
-                </div>
-                <div>
-                    <img src="./images/chinook.jpeg" alt="">
-                </div>
-        </div>
-<!-- 
-        <div id="myModal" class="modal">
-            <div id="location-modal-content">
-                <h1>Locations</h1>
+    <div id="modal-container">
+        <div id="modal-content">
+            <h1>Locations</h1>
                 <h3>Seattle, WA</h3>
                     <p>2169 Sam Pat Blvd Seattle, WA 98119</p>
                     <p>253-242-0384</p>
@@ -55,66 +43,88 @@
                     <p> 172 boulevard Saint Germain, 75006 Paris, France (6th Arr. - Luxembourg)</p>
                 <h3>Lima, Peru</h3>
                     <p>Av. Angamos Oeste 1003, Miraflores 15074, Peru</p>
-                <span class="close">x</span>
+                <span id="close">X</span>
+        </div>
+    </div>
+
+    <div id="welcome-container">
+        <div id="slogan-container">
+            <div>
+                <h2 class="welcome">Welcome to Patty's</h2>
             </div>
-        </div> -->
+            <div>
+                <h2>Where the 'L' is Silent and the Flavor is Violent!</h2>
+            </div>
+        </div>
+            <div id="chinook-container">
+                <img src="./images/chinook.jpeg" id="chinook-pic" alt="">
+            </div>
+    </div>
+
+    <div class="content-container">
 
         <h2 id="menu-text">Menu</h2>
-        <div id="menu-container">
 
-            <div class="cookie-info-container">
-                <div>
-                    <img class="menu-image" src="./images/poorly-frosted-cookie.jpeg" alt="">
+        <div id="menu-container-container">
+            <div id="menu-container">
+                <div class="cookie-info-container">
+                    <div id="kelly-info" class="cookie-info">
+                        <h4>Kelly's Special</h4>
+                            <p>This beautiful work of art is hand crafted by Patty and inspired by Kelly Vise's iconic photo on Unsplash! Seriously, check out her work!</p>
+                            <p>$2.50 each</p>
+                    </div>
+                    <div>
+                        <img class="menu-image" src="./images/PhotoByKellyViselOnUnsplash.jpg" alt="">
+                    </div>
                 </div>
-                <div id='poorly-frosted-info'class="cookie-info">
-                    <h4>Nutrition Information</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                <div class="cookie-info-container">
+                    <div>
+                        <img class="menu-image" src="./images/poorly-frosted-cookie.jpeg" alt="">
+                    </div>
+                    <div id='poorly-frosted-info'class="cookie-info">
+                        <h4>Sanaa's Favorite</h4>
+                        <p>This delicious treat was designed by young Sanaa. A chaotic blend of strawberries, spinach, and as always, a hint of salmon.</p>
+                        <p> $1.50 each</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="cookie-info-container">
-                <div>
-                    <img class="menu-image" src="./images/PhotoByKellyViselOnUnsplash.jpg" alt="">
+            <div id="menu-container">
+                <div class="cookie-info-container">
+                    <div id="fish-info" class="cookie-info">
+                        <h4>Rainbow Fish</h4>
+                        <p>The Rainbow Fish cookie is based on the fish in Patty's childhood pond. It's blend of tastes create an idyllic flavor profile!</p>
+                        <p>$2.00 each</p>
+                    </div>
+                    <div>
+                        <img class="menu-image" src="./images/fish.jpeg" alt="">
+                    </div>
                 </div>
-                <div id="kelly-info" class="cookie-info">
-                    <h4>Nutrition Information</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+
+                <div class="cookie-info-container">
+                    <div>
+                        <img class="menu-image" src="./images/download.jpeg" alt="">
+                    </div>
+                    <div class="cookie-info">
+                        <h4>Slammin Salmon Crackers</h4>
+                        <p>A delicious asSalt of salmon flavored salt crackers. Like the pun?</p>
+                        <p>$7 8 oz box</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="cookie-info-container">
-                <div>
-                    <img class="menu-image" src="./images/fish.jpeg" alt="">
-                </div>
-                <div id="fish-info" class="cookie-info">
-                    <h4>Nutrition Information</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div id="menuTwo-container">
-            <div class="cookie-info-container">
-                <div>
-                    <img class="menu-image" src="./images/download.jpeg" alt="">
-                </div>
-                <div class="cookie-info">
-                    <h4>Nutrition Information</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+            <div id="menu-container">
+                <div class="cookie-info-container">
+                    <div>
+                        <img class="menu-image" src="./images/Dog-Treats.png" alt="">
+                    </div>
+                    <div class="cookie-info">
+                        <h4>Patty Puppy Treats</h4>
+                            <p>Even your precious pooch can join in the fun with these salmon flavored dog treats!</p>
+                            <p>$5 8oz bag</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="cookie-info-container">
-                <div>
-                    <img class="menu-image" src="./images/Dog-Treats.png" alt="">
-                </div>
-                <div class="cookie-info">
-                    <h4>Nutrition Information</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
-                </div>
-            </div>
-        </div>
 
             <h2 id="merch-text">Merch</h2>
             <div id="merch-container">
@@ -124,7 +134,8 @@
                     </div>
                     <div class="cookie-info">
                         <h4>Salmon Shaped Cookie Cutter</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                        <p>Now you can bake like Chef Patty Cakes with this salmon shaped cookie cutter</p>
+                        <p>$5</p>
                     </div>
                 </div>
 
@@ -134,15 +145,19 @@
                     </div>
                     <div class="cookie-info">
                         <h4>Double Salmon T-shirt</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates consectetur laudantium sequi quo ullam et in fugiat temporibus.</p>
+                        <p>You've heard of double rainbow, but have you heard of double salmon?! Now you have!</p>
+                        <p>$25</p>
                     </div>
                 </div>
             </div>
+        </div>
 
         <div id="about-us-container">
-            <h2>About Us</h2>
+            <h2 id="about-us-text">About Us</h2>
             <img id="happy-family" src="./images/african-american-family-with-their-little-daughter-with-curly-fluffy-hair-having-fun-cooking-pastries-kitchen-dad-mom-daughter-cooking-together-cutt.jpg" alt="">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa expedita delectus ea odit. Sed tenetur aliquid fugiat consectetur hic, quis amet ex exercitationem quos et, tempore quas, autem libero voluptas! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed quis ullam, ipsum et eius natus totam officiis suscipit ex voluptate illo animi pariatur expedita ut optio sint eum consectetur quod! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nam quas ab quia praesentium, a facere quis soluta, error iure rerum voluptate magnam incidunt odit velit. Dignissimos eos saepe dolor.</p>
+            <div class="about-text">
+                <p>Patrick "Patty" Cakes, a long time avid fisher, began baking at a young age. He used to spend every weekend creating delicious oddities with his grandmother, oftentimes donating his goods to local shelters and the like. Patty's Salmon Cookies is a fever dream fusion of his love of Seattle fishing and hometown baking. Pictured above is Patty with his wife Janiyah and their young daughter, Sanaa, who has picked up a love of the craft too! Patty's Salmon Cookies are a Seattle based, coffe time confection. With a hint of salmon-y goodness in every bite, you're sure to find your favorite treat! 20% of all proceeds go towards The Salmon Cookie Foundation, an after-school program that teaches inner city youth the foundational skills of baking and fishing!</p>
+            </div>
         </div>
 
     </div>
@@ -153,23 +168,22 @@
             <p>	&copy; StormyWeatherCreations 2022</p>
         </div>
 
-        <div id="company-container">
-            <h3>Company</h3>
-                <div>
-                    <a href="#about-us-container">About Us</a>
-                </div>
-                <div>
-                    <a href="./sales.html">Employee Portal</a>
-                </div>
-        </div>
-
-        <div id="locations-container">
-           <button class="footer-button">Locations</button>
-        </div>
-
-        <div id="contact-us-container">
-            <button id="contact-us" class="footer-button">Contact Us</button>
-        </div>
+            <div class="footer-button">
+                <a href="#about-us-container">About Us</a>
+            </div>
+    
+            <div class="footer-button">
+                <a id='locations-button' href="#modal-container">Locations</a>
+            </div>
+    
+            <div class="footer-button">
+                <a href="./contact-us.html">Contact Us</a>
+            </div>
+    
+            <div class="footer-button">
+                <a href="./sales.html">Client Portal</a>
+            </div>
     </footer>
+    <script src="./location.js"></script>
 </body>
 </html>

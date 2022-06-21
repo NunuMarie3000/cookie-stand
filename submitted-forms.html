@@ -8,26 +8,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Sales Document</title>
+    <title>Submitted User Forms</title>
 </head>
 <body>
     <header>
         <img id="header-logo" src="./images/salmonpicweek2.png" alt="Patty's Salmon Cookies Logo, A Large pink salmon">
 
-        <h1 class="business-name">Sales</h1>
+        <h1 class="business-name">Patty's Salmon Cookies</h1>
 
         <div>
             <a href="./index.html" id="menu-button" class="footer-button">Exit Portal</a>
         </div>
         <div>
-            <a href="./order-processing.html" id="merch-button" class="footer-button">Order Processing</a>
+            <a href="./sales.html" id="merch-button" class="footer-button">Sales</a>
         </div>
         <div>
-            <a href="./submitted-forms.html" id="merch-button" class="footer-button">Submitted Forms</a>
+            <a href="./order-processing.html" id="merch-button" class="footer-button">Order Processing</a>
         </div>
     </header>
 
-    <div id="cookie-table-div"></div>
+    <div>
+        <h1 id="submitted-user-forms-text">Submitted User Forms</h1>
+    </div>
+
+    <div id="welcome-container">
+        <div>
+            <h1>Name</h1>
+            <div id="result-name"></div>
+        </div>
+        <div>
+            <h1>Email</h1>
+            <div id="result-email"></div>
+        </div>
+        <div>
+            <h1>Message</h1>
+            <div id="result-message"></div>
+        </div>
+    </div>
+        
 
     <footer>
         <div id="copyright-container">
@@ -43,8 +61,7 @@
                 <a href="./contact-us.html">Contact Us</a>
             </div>
     </footer>
-
+    <script type="text/javascript" src="./contact-us.js"></script>
+    <script type="text/javascript" src="./results.js"></script>
 </body>
-<script src="./app.js"></script>
-<script src="./contact-us.js"></script> 
 </html>
