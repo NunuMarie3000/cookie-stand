@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contact Us</title>
+</head>
+<body>
+    <header>
+        <img id="header-logo" src="./images/salmonpicweek2.png" alt="Patty's Salmon Cookies Logo, A Large pink salmon">
+
+        <h1 class="business-name">Patty's Salmon Cookies</h1>
+
+        <div>
+            <a href="./index.html" id="menu-button" class="footer-button">Back to Home</a>
+        </div>
+
+        <div>
+            <a href="./index.html#merch-text" id="merch-button" class="footer-button">Merch</a>
+        </div>
+
+        <div>
+            <a href="./cart.html" id="shopping-button" class="footer-button">Cart</a>
+        </div>
+    </header>
+
+    <div id="form-holder">
+        <form id="contact-us-form" action="./contact-us.js" method="POST">
+            <h1>Contact Us</h1>
+
+            <div class="enter-container">
+                <label for="enter-name">Name:</label><br>
+                <input id="enter-name" type="text" name="enter-name">
+            </div><br>
+            
+            <div class="enter-container">
+                <label for="email">Email:</label><br>
+                <input id="e-mail" type="email" name="email" required>    
+            </div><br>
+
+            <div class="enter-container">
+                <label for="message"></label>
+                <textarea id="message" rows="4" placeholder="Enter Message Here!"></textarea>
+            </div><br>
+
+            <div class="submit-button">
+                <input id="submit-button" type="submit" value="Submit" onclick="getData()">
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div id="copyright-container">
+            <img id='footer-logo' src="./images/salmonpicweek2.png" alt="">
+            <p>	&copy; StormyWeatherCreations 2022</p>
+        </div>
+        
+        <div class="footer-button">
+            <a href="./index.html#about-us-container">About Us</a>
+        </div>
+    
+            <div class="footer-button">
+                <a href="./contact-us.html">Contact Us</a>
+            </div>
+    
+            <div class="footer-button">
+                <a href="./sales.html">Client Portal</a>
+            </div>
+    </footer>
+
+<script type="text/javascript" src="./contact-us.js"></script>
+<script type="text/javascript" src="./results.js"></script>
+</body>
+</html>
